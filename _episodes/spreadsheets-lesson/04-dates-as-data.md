@@ -76,7 +76,6 @@ Excel will provide the answer 3 January 1900 (in some format) because the result
 Excel returns an error, because it is incapable of understanding that dates existed prior to 1 January 1900. This
 poses a huge problem for storing historical data!
 
-{: .callout}
 > ## Note on adding and subtracting dates and times
 >
 > Adding months and years to a date is slightly trickier than adding days because we need to make
@@ -90,8 +89,8 @@ poses a huge problem for storing historical data!
 > added, but to add hours and minutes we need to make sure that we are adding
 > the quantities to the correct entities. Extracting seconds, minutes and hours from a time is explained
 > in one of the exercises below.
-
 {: .callout}
+
 > ## Excel's date systems on Macs
 >
 > In the past, Excel used to entertain a second date system, the 1904 date system, as the default in Excel for Macs.
@@ -101,6 +100,29 @@ poses a huge problem for storing historical data!
 > Because of this,
 > [there were accuracy issues with dates when exporting data from Excel](https://uc3.cdlib.org/2014/04/09/abandon-all-hope-ye-who-enter-dates-in-excel/)
 > between Macs and PCs (dates were off by 4 years and 1 day). Luckily, Excel for Macs now defaults to the 1900 date system and supports dates as early as January 1, 1900.
+{: .callout}
+
+## Pre-formatting cells
+
+One approach to stop Excel from automatically changing things to dates is to pre-format cells with the type of data that
+will be entered into those cells. Doing this tells Excel exactly the type of data you are inputting, stopping it from
+being clever and interpreting your input as a date. This is especially helpful if some of your data is, for example,
+gene names or something similar which Excel could mistake as a date. To set the format of cells, highlight the cells you
+want to format and right click to bring up the context menu, selecting the "Format Cells..." option.
+
+<img src="fig/format_context_menu.png">
+
+This will bring up the "Format Cells" window, where we can control how the contents of a cell are displayed. The type of
+data can be set in the "Number" tab, where there are several formats of data you can choose. To stop something like a
+gene name from being changed to a date, select the "Text" type data format as shown below.
+
+<img src="fig/format_cells.png" width=460>
+
+After we've done this, any text input into the cells will stay as text and won't be converted to a date! If there
+was already data in the cells before formatting, anything which was converted to a date won't be converted back to the
+original input. Unfortunately when something is converted to a date, it's changed to the internal format Excel uses to
+store dates, which is a number! So when we set the format of the cell to something like text, the converted dates are
+just numbers.
 
 ## Preferred date formats
 
